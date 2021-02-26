@@ -1,0 +1,181 @@
+@font-face {
+  font-family: "Circular Std";
+  src: url("circular-book.otf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("circular-medium.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Circular Std";
+  src: url("circular-book.otf");
+  font-weight: normal;
+}
+
+body {
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 7.5625rem;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+
+  @media (max-width : 800px) {
+    font-size: 5rem;
+    line-height: 3rem;
+  }
+
+  @media (max-width : 600px) {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+h2 {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 2.25rem;
+  line-height: 2.875rem;
+  color: #FFFFFF;
+}
+
+h3 {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125rem;
+  line-height: 120%;
+  color: #000000;
+}
+
+h5 {
+  font-weight: 100 !important;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  color: #000000;
+}
+
+small {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.625rem;
+  line-height: 120%;
+  text-align: center;
+
+  color: #9A9FBF;
+
+}
+
+img {
+  cursor: pointer;
+}
+
+h4 {
+  font-weight: 100 !important;
+  font-size: 1.125rem;
+  line-height: 120%;
+  color: #2F54EB;
+}
+
+p {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 120%;
+  text-align: center;
+  color: #9A9FBF;
+}
+
+
+.btn {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  text-decoration-line: none;
+  font-family: Circular Std;
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1rem;
+  background: #D2D4DC;
+  text-align: center;
+  color: #FFFFFF;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(.99);
+  }
+
+  &.warning {
+    background-color: 	#CCCC00 !important;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+
+  &.primary {
+    background: #002244;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+
+}
+
+a {
+  font-family: Circular Std;
+  font-style: normal;
+  font-weight: 100;
+  font-size: .9rem;
+  line-height: 1rem;
+  text-align: right;
+  color: #2F54EB;
+}
+
+input, select {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 14px;
+  font-family: Circular Std;
+  font-weight: 100;
+  font-size: .8rem;
+  line-height: 1.5rem;
+  color: rgba(154, 159, 191, 0.5);
+  width: 100%;
+  margin-bottom: 10px;
+  &::placeholder {
+    color: rgba(154, 159, 191, 0.5);
+  }
+  &:focus {
+    color: black;
+    border: 1px solid #000;
+  }
+}
