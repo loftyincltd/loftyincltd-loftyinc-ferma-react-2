@@ -23,7 +23,7 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     setInterval(() => {
        if(navigator.onLine){
-         if(queued_users.length>0){
+         if(queued_users && queued_users.length>0){
            const a = queued_users;
           let cur = a.shift();
           dispatch(SET_QUEUED_USERS(a));
