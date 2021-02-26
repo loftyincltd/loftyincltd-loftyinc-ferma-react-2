@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { HANDLE_CHANGE } from '../../../redux/usersetup/action'; 
 import image from '../../../images/storeaa.svg'; 
-import { FingerprintReader, QualityCode, ErrorOccurred } from '@digitalpersona/devices';
+import { FingerprintReader, QualityCode, ErrorOccurred, SampleFormat } from '@digitalpersona/devices';
 
 const StoreName = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ reader.onErrorOccurred = (reason) => {
 console.log(reason)
 };
   useEffect(() => {
-  
+    reader.startAcquisition(SampleFormat.Intermediate);
     
   }, []);
   const handleChange = ({ target: { name, value } }) => {
