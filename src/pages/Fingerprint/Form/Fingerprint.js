@@ -13,6 +13,7 @@ const StoreName = () => {
 const isReaderConnected = false;
   useEffect(() => {
     reader = new  FingerprintReader();
+    console.log(reader)
     reader.onDeviceConnected = async (device) => {
          const devices = await reader.enumerateDevices();
          console.log(devices);
