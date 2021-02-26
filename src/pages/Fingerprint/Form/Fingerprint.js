@@ -11,37 +11,38 @@ const StoreName = () => {
   step: 0,devices:[]
 }); 
 const isReaderConnected = false;
-  useEffect(() => {
-    reader = new  FingerprintReader();
-    console.log(reader)
-    reader.onDeviceConnected = async (device) => {
-         const devices = await reader.enumerateDevices();
-         console.log(devices);
-         setState({
-           devices: devices,
-         })
+reader = new  FingerprintReader();
+console.log(reader)
+reader.onDeviceConnected = async (device) => {
+     const devices = await reader.enumerateDevices();
+     console.log(devices);
+     setState({
+       devices: devices,
+     })
 
-  };
-  reader.onDeviceDisconnected = async (device) => {
-    const devices = await reader.enumerateDevices();
-    console.log(devices);
-    setState({
-      devices: devices,
-    })
-  };
-  reader.onQualityReported = async (quality) => {
-    const devices = await this.reader.enumerateDevices();
-    console.log(devices)
-    console.log(quality.quality)
-  };
-  reader.onSamplesAcquired = async (data) => {
-     // await this.submit(data.samples);
-      //this.$scope.$applyAsync();
-      console.log(data.samples)
-  };
-  reader.onErrorOccurred = (reason) => {
-    console.log(reason)
-  };
+};
+reader.onDeviceDisconnected = async (device) => {
+const devices = await reader.enumerateDevices();
+console.log(devices);
+setState({
+  devices: devices,
+})
+};
+reader.onQualityReported = async (quality) => {
+const devices = await this.reader.enumerateDevices();
+console.log(devices)
+console.log(quality.quality)
+};
+reader.onSamplesAcquired = async (data) => {
+ // await this.submit(data.samples);
+  //this.$scope.$applyAsync();
+  console.log(data.samples)
+};
+reader.onErrorOccurred = (reason) => {
+console.log(reason)
+};
+  useEffect(() => {
+  
     
   }, []);
   const handleChange = ({ target: { name, value } }) => {
