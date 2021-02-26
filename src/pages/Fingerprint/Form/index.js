@@ -21,8 +21,10 @@ const Container = () => {
     <div className="onboarding-form-container">
       <div className="onboarding-form">
         <div className="msg" >
-          <h5 style={{fontSize:'22px', paddingBottom:'0px'}}>Create User</h5>
+          <h5 style={{fontSize:'22px', paddingBottom:'0px'}}>Register Fingerprint</h5>
         </div>
+        <br/>
+        <h5 >{current_user.last_name} {current_user.first_name}</h5>
 
         <div className="FormType">
         <form id="add-admin-form">

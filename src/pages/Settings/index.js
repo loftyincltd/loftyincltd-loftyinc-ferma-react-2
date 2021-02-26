@@ -45,9 +45,9 @@ const Index = () => {
             marginBottom: '24px',
             
       }}>
-          <h3 >First name: {user.first_name}</h3>
-          <h4>Last naame: {user.last_name}</h4>
-          <h4>Username: {user.username}</h4>
+          <h5 >First name: {user.first_name}</h5>
+          <h5>Last name: {user.last_name}</h5>
+          <h5>Username: {user.username}</h5>
           <div style={{borderBottom:1}}>
 
           </div>

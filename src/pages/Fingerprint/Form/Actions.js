@@ -37,7 +37,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
     
       <div className="next">
         <button
-        className={form && form.first_name&& form.last_name && form.address && form.occupation && form.gender && form.lga && form.dob ?'primary' : 'disabled'}
+        className={form && form.first_name&& form.last_name && form.address && form.occupation && form.gender && form.lga && form.dob ?'primary btn' : 'disabled btn' }
         style={{width:'100px', margin:'0 5px'}} onClick={uploadUser}>
           {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
         Submit

@@ -15,6 +15,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import './modules/WebSdk/index';
 import * as serviceWorker from './serviceWorker';
 axios.defaults.baseURL = 'https://back.vergly.com';
+export {default as WebSdk} from './modules/WebSdk/index';
 
 // axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
 
