@@ -15,6 +15,7 @@ const isReaderConnected = false;
     reader = new  FingerprintReader();
     reader.onDeviceConnected = async (device) => {
          const devices = await reader.enumerateDevices();
+         console.log(devices);
          setState({
            devices: devices,
          })
@@ -22,6 +23,7 @@ const isReaderConnected = false;
   };
   reader.onDeviceDisconnected = async (device) => {
     const devices = await reader.enumerateDevices();
+    console.log(devices);
     setState({
       devices: devices,
     })
