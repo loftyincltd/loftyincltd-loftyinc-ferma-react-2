@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import './styles/index.scss';
 import './styles/App.scss';
 import Route from './route';
-import reportWebVitals from './reportWebVitals';
+  import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
 import axios from 'axios';

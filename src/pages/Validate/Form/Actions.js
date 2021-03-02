@@ -12,8 +12,8 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
   const { user_token } = useSelector((state) => state.app);
   const token = window.localStorage.getItem('user_token') || null;
   const { form, } = useSelector((state) => state.usersetup);
-  const uploadUser = function(){
-    if(form &&true ){//fingerprint valud
+  const uploadWorker = function(){
+    if(form &&form.fingerprint_data ){//fingerprint valud
       const f ={loading: true}
       dispatch(HANDLE_CHANGE(f));
       dispatch(WORKER_ADD(form)).then((resp)=>{
@@ -39,7 +39,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
         <button
         className={form// &&form.validated
            ?'btn primary' : 'btn disabled'}
-        style={{width:'100px', margin:'0 5px'}} onClick={uploadUser}>
+        style={{width:'100px', margin:'0 5px'}} onClick={uploadWorker}>
           {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
         Submit
         </button>
