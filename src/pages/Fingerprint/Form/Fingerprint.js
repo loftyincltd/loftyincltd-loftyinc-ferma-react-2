@@ -71,6 +71,7 @@ const capture = function () {
   reader.startAcquisition(SampleFormat.PngImage);
 }
 const clear = function () {
+  dispatch(CLEAR());
   reader.startAcquisition(SampleFormat.PngImage);
 }
   return (
