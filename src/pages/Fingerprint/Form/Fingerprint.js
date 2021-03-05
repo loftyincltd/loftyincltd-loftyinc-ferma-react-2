@@ -36,7 +36,7 @@ reader.onSamplesAcquired = async (data) => {
   //this.$scope.$applyAsync();
   console.log(data.samples)
   const form = {};
-  form['fingerprint_data'] = data.samples[0];
+  form['fingerprint'] = data.samples[0].Data;
   dispatch(HANDLE_CHANGE(form));
 
   /** try {

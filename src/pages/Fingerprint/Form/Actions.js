@@ -13,7 +13,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
   const { form, } = useSelector((state) => state.usersetup);
   const uploadFingerprint = function(){
     console.log(form)
-    if(form &&  form.fingerprint_data){
+    if(form &&  form.fingerprint){
       form.user_id =  current_user._id;
       const f ={loading: true}
       dispatch(HANDLE_CHANGE(f));

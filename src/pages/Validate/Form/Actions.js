@@ -13,7 +13,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
   const token = window.localStorage.getItem('user_token') || null;
   const { form, } = useSelector((state) => state.usersetup);
   const uploadWorker = function(){
-    if(form &&form.fingerprint_data ){//fingerprint valud
+    if(form &&form.fingerprint ){//fingerprint valud
       const f ={loading: true}
       dispatch(HANDLE_CHANGE(f));
       dispatch(WORKER_ADD(form)).then((resp)=>{

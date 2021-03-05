@@ -328,7 +328,7 @@ const api = (user) => (next) => async (action)  => {
                       }
                    }); 
                  case 'FINGERPRINT_ADD':
-                  return post('/api/worker',  user.getState().usersetup.form, function(error, response){
+                  return post('/auth/user/fingerprint',  user.getState().usersetup.form, function(error, response){
                       if(error){
                        errorNotification( 'Server Error');
                         return
