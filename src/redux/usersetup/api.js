@@ -396,6 +396,27 @@ const api = (user) => (next) => async (action)  => {
             
                  }
               }); 
+              case 'FETCH_STAT':
+                const f1= {};
+            return get('/auth/user/stat',f1,  function(error, response){
+                 if(error){
+                  //errorNotification( 'Server Errror');
+                   console.log(error);
+                   return
+                 } else{
+                  if(!response.data.error) { 
+                    if(response.data.success){
+                      return  {success:response.data.success};
+                    }
+               
+                  }else {
+                    errorNotification(response.data.error || 'Wrong user type');
+                    return  {error:response.data.error};
+        
+                  }
+            
+                 }
+              }); 
 
               case 'FETCH_PROJECT':
 

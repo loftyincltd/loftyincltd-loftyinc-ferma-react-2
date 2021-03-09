@@ -40,6 +40,12 @@ export function SET_USERS(payload) {
 		payload
 	};
 }
+export function SET_STAT(payload) {
+	return {
+		type: 'SET_STAT',
+		payload
+	};
+}
 export function SET_WORKERS(payload) {
 	return {
 		type: 'SET_WORKERS',

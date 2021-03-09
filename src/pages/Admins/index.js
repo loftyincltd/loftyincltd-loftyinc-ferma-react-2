@@ -37,6 +37,7 @@ const Index = () => {
   }, []);
   return (
     <div className="dashboard-container-main" style={{marginBottom: '20px'}}>
+
     <Search />
     <CardWidget Child={TransactionLists} /> 
     <div>

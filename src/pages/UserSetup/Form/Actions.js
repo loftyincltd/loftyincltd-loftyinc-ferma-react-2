@@ -22,7 +22,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
         if(resp &&resp.success){
           dispatch(CLEAR(form))
          document.getElementById("add-user-form").reset();
-          history.push('/users')
+          history.push('/user')
         }else{
  
             if(!Array.isArray(queued_users)){
@@ -33,7 +33,8 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
               dispatch(SET_QUEUED_USERS(q))   ;
              dispatch(CLEAR(form))
              document.getElementById("add-user-form").reset();
-              history.push('/users')
+             history.push('/users')
+             
   
         }
        

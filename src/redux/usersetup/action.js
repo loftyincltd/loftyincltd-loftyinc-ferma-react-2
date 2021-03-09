@@ -71,6 +71,12 @@ export function FETCH_USER(payload) {
 		payload
 	};
 }
+export function FETCH_STAT(payload) {
+	return {
+		type: 'FETCH_STAT',
+		payload
+	};
+}
 
 export function PASSWORD_CHANGE(payload) {
 	return {

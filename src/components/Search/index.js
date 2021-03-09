@@ -47,7 +47,7 @@ const Search = () => {
           }); 
         
         }}>
-       {(form.q&&form.q.trim())==""?'Refresh':'Search'}
+       {(!form.q||(form.q && form.q.trim()==""))?'Refresh':'Search'}
 
         </button>
 

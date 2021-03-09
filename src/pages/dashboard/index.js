@@ -5,6 +5,7 @@ import { SET_USERS } from '../../redux/application/action';
 import { useDispatch, useSelector } from 'react-redux';
 import RecentUsers from '../../components/lists/RecentUsers';
 import ContactAside from '../../components/asides/ContactAside';
+import Chart from '../../components/chart';
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const Index = () => {
   return (
     
     <div className="dashboard-container-main">
-       
+             <Chart/>
       <RecentUsers />
             {user.super?
                <button

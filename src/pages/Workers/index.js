@@ -11,7 +11,8 @@ import CardWidget from '../../components/widgets/CardWidget';
 import RadioOptions from '../../components/RadioOptions';
 
 const Index = () => {
-  const { user, filter_type, current_project } = useSelector((state) => state.app);
+  const { user, filter_type, current_project, workers } = useSelector((state) => state.app);
+  
   const { form, } = useSelector((state) => state.usersetup);
   const dispatch = useDispatch();
 
@@ -92,7 +93,10 @@ const Index = () => {
             </button>:<></>
 
             }
-    <CardWidget Child={TransactionLists3} /> 
+     { workers && workers.length>0 ?
+   <CardWidget Child={TransactionLists3} />: <div/>
+     }       
+  
    
     <div>
     {/**<Pagination defaultCurrent={1} total={50} />**/}
