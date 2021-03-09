@@ -61,6 +61,7 @@ import { SET_STAT } from '../../redux/application/action';
         
       }, []);
     return (
+        
         <div style={{background: 'rgb(255, 255, 255)' ,borderRadius: '10px', padding: '15px',
          boxShadow: 'rgba(0, 0, 0, 0.1) 0px 3px 12px 0px', marginBottom: '24px'}}>
                  <h3 style={{color:"red"}}>User Per State Bar Chart</h3>
