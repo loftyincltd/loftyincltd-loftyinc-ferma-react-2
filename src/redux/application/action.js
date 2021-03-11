@@ -46,6 +46,13 @@ export function SET_STAT(payload) {
 		payload
 	};
 }
+
+export function SET_GENDER(payload) {
+	return {
+		type: 'SET_GENDER',
+		payload
+	};
+}
 export function SET_WORKERS(payload) {
 	return {
 		type: 'SET_WORKERS',

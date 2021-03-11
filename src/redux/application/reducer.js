@@ -17,6 +17,11 @@ const initialState = {
     datums:[{}]
   },
 ],
+
+gender: {
+ male: 0, female: 0
+}
+,
   current_project:{},
   form: {
   },
@@ -48,9 +53,14 @@ export default function applicationReducer(state = initialState, { type, payload
             return current_user;
 
             case 'SET_STAT':
-              console.log(payload)
+            
               const stat = { ...state, stat: payload };
-              return stat;         
+              return stat;  
+              case 'SET_GENDER':
+            
+                const gender = { ...state, gender: payload };
+                return gender;         
+                  
 
       case 'SET_PROJECT':
               const current_project = { ...state, current_project: payload };

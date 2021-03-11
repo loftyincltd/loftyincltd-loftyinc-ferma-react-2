@@ -78,6 +78,13 @@ export function FETCH_STAT(payload) {
 	};
 }
 
+export function FETCH_GENDER(payload) {
+	return {
+		type: 'FETCH_GENDER',
+		payload
+	};
+}
+
 export function PASSWORD_CHANGE(payload) {
 	return {
 		type: 'PASSWORD_CHANGE',

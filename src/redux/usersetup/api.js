@@ -417,7 +417,27 @@ const api = (user) => (next) => async (action)  => {
             
                  }
               }); 
-
+              case 'FETCH_GENDER':
+                const f2= {};
+            return get('/auth/user/gender',f2,  function(error, response){
+                 if(error){
+                  //errorNotification( 'Server Errror');
+                   console.log(error);
+                   return
+                 } else{
+                  if(!response.data.error) { 
+                    if(response.data.success){
+                      return  {success:response.data.success};
+                    }
+               
+                  }else {
+                    errorNotification(response.data.error || 'Wrong user type');
+                    return  {error:response.data.error};
+        
+                  }
+            
+                 }
+              }); 
               case 'FETCH_PROJECT':
 
             return get('/api/project/all',{},  function(error, response){
