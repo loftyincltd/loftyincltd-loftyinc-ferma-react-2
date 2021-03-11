@@ -23,7 +23,7 @@ const RecentUsers = () => {
       
       <h3>Recently Added Users:</h3>
       <div className="Ongoing-Requests-main">
-        <FlatList data={users.slice(0,5)} Child={Requests} />
+        <FlatList data={users.slice(0,6)} Child={Requests} />
       </div>
     </div>
   );

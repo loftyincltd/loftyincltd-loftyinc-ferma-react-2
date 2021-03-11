@@ -60,8 +60,8 @@ import { PieChart } from 'react-minimal-pie-chart';
         
       }, []);
     return (
-
-        <div style={{background: 'rgb(255, 255, 255)' ,borderRadius: '10px', padding: '15px',
+      <div>
+ <div style={{background: 'rgb(255, 255, 255)' ,borderRadius: '10px', padding: '15px',
          boxShadow: 'rgba(0, 0, 0, 0.1) 0px 3px 12px 0px', marginBottom: '24px'}}>
                  <h3 style={{color:"red"}}>Users Per State</h3>
             <br/>
@@ -75,6 +75,13 @@ import { PieChart } from 'react-minimal-pie-chart';
        
 
       </div>
+
+     
+      </div>
+<br/>
+      <div style={{background: 'rgb(255, 255, 255)' ,borderRadius: '10px', padding: '15px',
+         boxShadow: 'rgba(0, 0, 0, 0.1) 0px 3px 12px 0px', marginBottom: '24px'}}>
+           
 
       <h3 style={{color:"red"}}>Users By Gender</h3>
             <br/>
@@ -93,6 +100,8 @@ import { PieChart } from 'react-minimal-pie-chart';
 
       </div>
       </div>
+      </div>
+       
     )
   }
  

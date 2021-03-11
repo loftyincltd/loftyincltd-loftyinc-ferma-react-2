@@ -56,11 +56,13 @@ const Index = () => {
     };
   return (
     
-    <div className="dashboard-container-main">
+    <div className="dashboard-container-main"
+    >
              <Chart/>
       <RecentUsers />
             {user.super?
                <button
+             
               className={true?'primary btn' : 'disabled btn'}
               onClick={
                 download
@@ -70,6 +72,8 @@ const Index = () => {
             </button>:<></>
 
             }
+            <br/>
+            <br/>
     </div>
   );
 };
