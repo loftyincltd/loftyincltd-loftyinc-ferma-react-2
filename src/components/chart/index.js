@@ -92,6 +92,8 @@ import { PieChart } from 'react-minimal-pie-chart';
       >
     
     <PieChart
+    label={({ dataEntry }) => dataEntry.title}
+    labelStyle={{color:'#fff'}}
   data={[
     { title: 'Female', value: aa.gender && aa.gender.female, color: '#e7baa0' },
     { title: 'Male', value: aa.gender && aa.gender.male, color: '#b2b2a2' },
