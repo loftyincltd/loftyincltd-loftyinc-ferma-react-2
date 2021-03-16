@@ -92,11 +92,13 @@ import { PieChart } from 'react-minimal-pie-chart';
       >
     
     <PieChart
-    label={({ dataEntry }) => dataEntry.title}
-    labelStyle={{color:'#fff'}}
+    label={({ dataEntry }) =>{
+      return dataEntry.title +`(${Math.round(dataEntry.percentage)}%)`
+    }} 
+    labelStyle={{color:'#000', fontSize: 5}}
   data={[
-    { title: 'Female', value: aa.gender && aa.gender.female, color: '#e7baa0' },
-    { title: 'Male', value: aa.gender && aa.gender.male, color: '#b2b2a2' },
+    { title: 'Female', value: aa.gender && aa.gender.female, color: 'rgb(251, 174, 210)' },
+    { title: 'Male', value: aa.gender && aa.gender.male, color: 'rgb(74, 181, 235)' },
   ]}
 />
 
