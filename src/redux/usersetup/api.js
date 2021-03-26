@@ -20,7 +20,7 @@ const api = (user) => (next) => async (action)  => {
     callback: function(){};
     try {
       const response = await axios.post(
-        'http://3.138.202.26:3075/v1' + url,
+        'http://3.8.182.114:3003/v1' + url,
         body, config
       ); 
       return callback(false, response);
@@ -40,7 +40,7 @@ const api = (user) => (next) => async (action)  => {
     callback: function(){};
     try {
       const response = await axios.put(
-        'http://3.138.202.26:3075/v1' + url,
+        'http://3.8.182.114:3003/v1' + url,
         body, config
       ); 
       return callback(false, response);
@@ -70,7 +70,7 @@ const api = (user) => (next) => async (action)  => {
     }
     try {
       const response = await axios.get(
-        'http://3.138.202.26:3075/v1' + url, config
+        'http://3.8.182.114:3003/v1' + url, config
        
       ); 
       return callback(false, response);
@@ -96,7 +96,7 @@ const api = (user) => (next) => async (action)  => {
     }
     try {
       const response = await axios.delete(
-        'http://3.138.202.26:3075/v1' + url, config
+        'http://3.8.182.114:3003/v1' + url, config
        
       ); 
       return callback(false, response);
@@ -126,7 +126,7 @@ const api = (user) => (next) => async (action)  => {
     }
     try {
       const response = await axios.delete(
-        'http://3.138.202.26:3075/v1' + url, config
+        'http://3.8.182.114:3003/v1' + url, config
        
       ); 
       return callback(false, response);
