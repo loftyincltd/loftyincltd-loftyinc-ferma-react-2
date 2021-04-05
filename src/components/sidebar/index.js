@@ -72,10 +72,10 @@ const SideBar = ({ children }) => {
           <i className={current.className} style={{marginRight:'10px', color:'#1890FF', fontSize: 23}}></i>
              <p>{current.title}</p>
           </div>
-          <div>
+         {/**  <div>
           <Online>Online &nbsp;<div style={{borderRadius: '50%', width:10, height: 10, background: 'green', display:'inline-block'}}></div></Online>
           <Offline>Offline &nbsp;<div style={{borderRadius: '50%', width:10, height: 10, background: 'red', display:'inline-block'}}></div></Offline>
-          </div>
+         </div>**/}
           <Link to={'/dashboard'}  onClick={() => dispatch(CLOSE_ASIDE())}>
           <div className="user">
             <img src={Aramide} alt="k" />
