@@ -6,7 +6,8 @@ import Iframe from 'react-iframe';
 
 const Container = () => {
   const { user, current_user } = useSelector((state) => state.app);
-
+  const { form } = useSelector((state) => state.usersetup);
+const {fingerprint} = useSelector((state) => state.usersetup)
   const [state, setState] = useState({
     step: 0
   });
