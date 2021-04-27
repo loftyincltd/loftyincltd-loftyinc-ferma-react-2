@@ -18,6 +18,7 @@ export default function Fingerprint() {
 
 reader.onSamplesAcquired = async (data) => {
    const form = {};
+   console.log(data.samples[0])
    form['fingerprint'] = data.samples[0].Data;
    console.log(form)
    dispatch(HANDLE_CHANGE(form));
