@@ -37,7 +37,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
     
       <div className="next">
         <button
-        className={form && form.fingerprint_data ?'primary btn' : 'disabled btn' }
+        className={form && form.fingerprint ?'primary btn' : 'disabled btn' }
         style={{width:'100px', margin:'0 5px'}} onClick={uploadFingerprint}>
           {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
         Submit
