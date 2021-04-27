@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Actions from './Actions';
-import Fingerprint from './Fingerprint';
+import Fingerprent from './Fingerprent';
 import Iframe from 'react-iframe';
 
 const Container = () => {
@@ -32,7 +32,7 @@ const Container = () => {
         <div className="FormType">
           <form id="add-admin-form">
             {/**<FormType state={state} nextStep={nextStep} prevStep={prevStep} changeStep={changeStep} />**/}
-<Fingerprint current_user={current_user}/>
+<Fingerprent />
           </form>
         </div>
       </div>

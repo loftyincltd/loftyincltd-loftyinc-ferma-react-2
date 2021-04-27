@@ -9,12 +9,10 @@ const StoreName = () => {
   const { form, } = useSelector((state) => state.usersetup);
 
   const dispatch = useDispatch();
- const reader=new  FingerprintReader();
+ const reader= new  FingerprintReader();
 //  const [state, setState] = useState({
 //   step: 0,devices:[]
 // }); 
-
-const devices =  reader.enumerateDevices();
   
 const updateReaderStatus =  async () => {
   try {
@@ -25,20 +23,17 @@ const updateReaderStatus =  async () => {
   } finally {
   }
 }
-const connection = async () => {
-  updateReaderStatus()
-  console.log(devices + " is connected")
+const connection =  (devices) => {
+   updateReaderStatus()
 }
-const CheckConnection = async (device) =>  {
- try { 
-   reader.onDeviceConnected = await connection();
-  } catch (err) {
-    console.log(err)
-}}
+const CheckConnection = async () =>  {
+  const devices = reader.enumerateDevices();
+  //  reader.onDeviceConnected =  await connection()
+}
 
  const capture = ()  => {
   try {
-     reader.startAcquisition(SampleFormat.PngImage);
+     reader.startAcquisition(SampleFormat.Intermediate.PngImage);
 } catch (err) {
     console.log(err)
 }
