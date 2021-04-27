@@ -42,10 +42,7 @@ const CheckConnection = async (device) =>  {
 
  const capture = ()  => {
   try {
-     reader.startAcquisition(SampleFormat.Intermediate);
-    setisSampleCollected(true)
-    // console.log(sample + isSampleCollected)
-    updateReaderStatus();
+     reader.startAcquisition(SampleFormat.PngImage);
 } catch (err) {
     console.log(err)
 }
