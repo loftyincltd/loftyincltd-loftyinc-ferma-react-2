@@ -9,14 +9,16 @@ const StoreName = () => {
 
   const { form, } = useSelector((state) => state.usersetup);
   const dispatch = useDispatch();
- const reader=new  FingerprintReader();;
+ const reader=new  FingerprintReader();
  const [state, setState] = useState({
   step: 0,devices:[]
 }); 
+
+const devices =  reader.enumerateDevices();
 const isReaderConnected = false;
 reader.onDeviceConnected = async (device) => {
      const devices = await reader.enumerateDevices();
-     console.log(devices)
+     console.log(devices + device)
      setState({
        devices: devices,
      })

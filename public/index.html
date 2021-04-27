@@ -26,31 +26,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Welcome to Roadmap!</title>
-    <script src="https://polyfill.io/v3/polyfill.js?features=Symbol%2Cfetch%2CString.prototype.endsWith%2CObject.assign%2CArray.prototype.findIndex%2CArray.prototype.includes"></script>
-    <script src="modules/websdk/index.js"></script>
-    <script id="TextEncoder-shim">
-        if (typeof(TextEncoder) === 'undefined') {
-            TextEncoder = function TextEncoder() {}
-            TextEncoder.prototype.encode = function(s) {
-                const e = new Uint8Array(s.length);
-                for (let i = 0; i < s.length; i += 1) {
-                    e[i] = s.charCodeAt(i);
-                }
-                return e;
-            }
-        }
-  
-        if (typeof(TextDecoder) === 'undefined') {
-            TextDecoder = function TextDecoder() {}
-            TextDecoder.prototype.decode = function(arr) {
-                let d = "";
-                for (let i = 0; i < arr.length; i += 1) {
-                    d += String.fromCharCode(arr[i]);
-                }
-                return d;
-            }
-        }
-    </script>
+   
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -69,7 +45,31 @@
           </div>
       </div>
   </noscript>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=Symbol%2Cfetch%2CString.prototype.endsWith%2CObject.assign%2CArray.prototype.findIndex%2CArray.prototype.includes"></script>
+  <script type="text/javascript" src="modules/websdk/index.js"></script>
+  <script id="TextEncoder-shim">
+    if (typeof(TextEncoder) === 'undefined') {
+        TextEncoder = function TextEncoder() {}
+        TextEncoder.prototype.encode = function(s) {
+            const e = new Uint8Array(s.length);
+            for (let i = 0; i < s.length; i += 1) {
+                e[i] = s.charCodeAt(i);
+            }
+            return e;
+        }
+    }
 
+    if (typeof(TextDecoder) === 'undefined') {
+        TextDecoder = function TextDecoder() {}
+        TextDecoder.prototype.decode = function(arr) {
+            let d = "";
+            for (let i = 0; i < arr.length; i += 1) {
+                d += String.fromCharCode(arr[i]);
+            }
+            return d;
+        }
+    }
+</script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
