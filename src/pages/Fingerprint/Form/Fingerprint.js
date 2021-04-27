@@ -7,8 +7,7 @@ import { FingerprintReader, QualityCode, ErrorOccurred, SampleFormat } from '@di
 
 const StoreName = () => {
   const { form, } = useSelector((state) => state.usersetup);
-  const [isReaderConnected, setisReaderConnected] = useState(false)
-  const [isSampleCollected, setisSampleCollected] = useState(false)
+
   const dispatch = useDispatch();
  const reader=new  FingerprintReader();
 //  const [state, setState] = useState({
@@ -20,16 +19,13 @@ const devices =  reader.enumerateDevices();
 const updateReaderStatus =  async () => {
   try {
       const devices = await reader.enumerateDevices();
-      console.log(devices)
-      setisReaderConnected({isReaderConnected: devices.length > 0});
+      console.log(devices) 
   } catch (err) {
-      setisReaderConnected(false);
       console.log(err)
   } finally {
   }
 }
-const connection = () => {
-  const devices = reader.enumerateDevices();
+const connection = async () => {
   updateReaderStatus()
   console.log(devices + " is connected")
 }
