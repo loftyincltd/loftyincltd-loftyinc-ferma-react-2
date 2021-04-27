@@ -12,7 +12,6 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
   const token = window.localStorage.getItem('user_token') || null;
   const { form, } = useSelector((state) => state.usersetup);
   const uploadFingerprint = function(){
-    console.log(form)
     if(form &&  form.fingerprint){
       form.user_id =  current_user._id;
       const f ={loading: true}
