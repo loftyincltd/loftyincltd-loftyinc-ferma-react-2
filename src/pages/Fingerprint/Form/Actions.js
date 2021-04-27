@@ -20,12 +20,10 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
 setloadingf(true)
       dispatch(HANDLE_CHANGE(f));
       dispatch(FINGERPRINT_ADD(form)).then((resp)=>{
-        console.log("in the gates");
 
         const f ={loading: false}
         dispatch(HANDLE_CHANGE(f));
         if(resp &&resp.success){
-          console.log("success");
           dispatch(CLEAR(form))
          document.getElementById("add-admin-form").reset();
           history.push('/users')
@@ -40,12 +38,14 @@ setloadingf(true)
   return (
     <div style={{display:'flex', alignItems:'center',justifyContent:'center',
      flexDirection:'row', margin:'10px auto'}}>
-    
+    <div className={'fingerprint-contaniner'}>
+      {form.fingerprint && form.fingerprint.trim()!="" ? <img src={'data:image/png;base64,'+form.fingerprint} className="fingerprint-image" /> : <div/>}
+    </div>
       <div className="next">
         <button
         className={form && form.fingerprint ?'primary btn' : 'disabled btn' }
-        style={{width:'100px', margin:'0 5px'}} onClick={uploadFingerprint}>
-          {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
+        style={{width:'100px',gin:'0 5px'}} onClick={uploadFingerprint}>
+          {form.loading?<i cla marssName="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
         
         {loadingf ? <Spin size="large" /> : "Submit"}
         </button>
