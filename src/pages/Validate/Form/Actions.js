@@ -25,6 +25,8 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
           dispatch(CLEAR())
        
           history.push('/users')
+        }else{
+          alert("Error: Invalid Fingerprint")
         }
       });
     }
