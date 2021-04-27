@@ -6,31 +6,62 @@ import image from '../../../images/storeaa.svg';
 import { FingerprintReader, QualityCode, ErrorOccurred, SampleFormat } from '@digitalpersona/devices';
 
 const StoreName = () => {
-
   const { form, } = useSelector((state) => state.usersetup);
+  const [isReaderConnected, setisReaderConnected] = useState(false)
+  const [isSampleCollected, setisSampleCollected] = useState(false)
   const dispatch = useDispatch();
  const reader=new  FingerprintReader();
- const [state, setState] = useState({
-  step: 0,devices:[]
-}); 
+//  const [state, setState] = useState({
+//   step: 0,devices:[]
+// }); 
 
 const devices =  reader.enumerateDevices();
-const isReaderConnected = false;
-reader.onDeviceConnected = async (device) => {
-     const devices = await reader.enumerateDevices();
-     console.log(devices + device)
-     setState({
-       devices: devices,
-     })
-
-};
-reader.onDeviceDisconnected = async (device) => {
-const devices = await reader.enumerateDevices();
-console.log(devices)
-setState({
-  devices: devices,
+useEffect(() => {
+  reader.onDeviceConnected =  (device) => {
+    updateReaderStatus();
+    console.log(device)
+  }
 })
-};
+useEffect(() => {
+  reader.onDeviceConnected =  (device) => {
+    updateReaderStatus();
+    console.log(device)
+  }
+})
+const updateReaderStatus = async function() {
+  try {
+      const devices = await reader.enumerateDevices();
+      console.log(devices)
+      setisReaderConnected({isReaderConnected: devices.length > 0});
+  } catch (err) {
+      setisReaderConnected(false);
+      console.log(err)
+  } finally {
+  }
+}
+ const capture = async function(sample) {
+  try {
+    await reader.startAcquisition(SampleFormat.Intermediate);
+    console.log(sample)
+} catch (err) {
+    console.log(err)
+}
+ }
+// reader.onDeviceConnected = async (device) => {
+//      const devices = await reader.enumerateDevices();
+//      console.log(devices + device)
+//      setState({
+//        devices: devices,
+//      })
+
+// };
+// reader.onDeviceDisconnected = async (device) => {
+// const devices = await reader.enumerateDevices();
+// console.log(devices)
+// setState({
+//   devices: devices,
+// })
+// };
 reader.onQualityReported = async (quality) => {
 console.log(quality.quality)
 };
@@ -61,18 +92,14 @@ reader.onSamplesAcquired = async (data) => {
 reader.onErrorOccurred = (reason) => {
 console.log(reason)
 };
-  useEffect(() => {
- 
-    
-  }, []);
   const handleChange = ({ target: { name, value } }) => {
     const form = {};
     form[name] = value;
     dispatch(HANDLE_CHANGE(form));
   };
-const capture = function () {
-  reader.startAcquisition(SampleFormat.PngImage);
-}
+// const capture = function () {
+//   reader.startAcquisition(SampleFormat.PngImage);
+// }
 const clear = function () {
   dispatch(CLEAR());
   reader.startAcquisition(SampleFormat.PngImage);
@@ -80,7 +107,7 @@ const clear = function () {
   return (
     <div style={{display:'flex', alignItems:'center',justifyContent:'center',
     flexDirection:'column'}}>
-      {
+      {/* {
         state.devices &&      state.devices.length === 0?
         <h6 style={{fontSize:'22px', paddingBottom:'0px', color:'red'}}>Fingerprint Device Disconnected</h6>: 
           <h6 style={{fontSize:'22px', paddingBottom:'0px', color:'green'}}>Fingerprint Device Connected</h6>
@@ -117,7 +144,19 @@ const clear = function () {
          {
            form && form.fingerprint_data?
            <h6 style={{fontSize:'22px', paddingBottom:'0px', color:'blue'}}>Fingerprint Data Captured</h6>: <div/>
-         }
+         } */}
+          <button
+        className={'primary btn'}
+        style={{width:'200px', margin:'0 auto', marginBottom: '30px'}} onClick={capture}>
+          {/* {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>} */}
+           Capture Fingerprint
+        </button>
+          <button
+        className={'btn'}
+        style={{width:'200px', margin:'0 auto', marginBottom: '30px', background:'red'}} onClick={clear}>
+          {/* {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>} */}
+           Clear Fingerprint
+        </button>
     </div>
   );
 };

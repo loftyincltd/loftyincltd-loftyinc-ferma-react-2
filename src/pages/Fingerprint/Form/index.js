@@ -11,10 +11,13 @@ const Container = () => {
     step: 0
   });
   
-  const frame = document.getElementById('fingerprint');
-  frame.contentWindow.postMessage(current_user, 'http://3.8.182.114:9002/');
 
-
+// useEffect(() => {
+//   const frame = document.getElementsByClassName('fingerprint')[0];
+//   return () => {
+//     frame.contentWindow.postMessage(current_user, 'http://3.8.182.114:9002/');
+//   }
+// }, [])
   const changeStep = (step) => setState({ step });
 
   const prevStep = () => {
@@ -26,18 +29,10 @@ const Container = () => {
   return (
     <div className="onboarding-form-container">
       <div className="onboarding-form">
-        <div className="msg">
-          <h5 style={{ fontSize: '22px', paddingBottom: '0px' }}>Register Fingerprint</h5>
-        </div>
-        <br />
-        <h5>
-          {current_user.last_name} {current_user.first_name}
-        </h5>
-
         <div className="FormType">
           <form id="add-admin-form">
             {/**<FormType state={state} nextStep={nextStep} prevStep={prevStep} changeStep={changeStep} />**/}
-            <Iframe url="http://3.8.182.114:9002/" width="450px" height="450px" id="fingerprint" className="fingerprint" display="initial" position="relative" />
+<Fingerprint current_user={current_user}/>
           </form>
         </div>
       </div>
