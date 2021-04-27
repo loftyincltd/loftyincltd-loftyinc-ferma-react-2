@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HANDLE_CHANGE, CLEAR } from '../../../redux/usersetup/action'; 
 import { FingerprintReader, QualityCode, SampleFormat } from '@digitalpersona/devices';
+
+
 export default function Fingerprint() {
+  const { form, } = useSelector((state) => state.usersetup);
   const dispatch = useDispatch();
   const reader = new FingerprintReader();
   const updateReaderStatus = async () => {
