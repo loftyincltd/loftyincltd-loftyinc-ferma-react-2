@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
 import { HANDLE_CHANGE, CLEAR } from '../../../redux/usersetup/action'; 
 import image from '../../../images/storeaa.svg'; 
 import { FingerprintReader, QualityCode, ErrorOccurred, SampleFormat } from '@digitalpersona/devices';
@@ -16,19 +16,8 @@ const StoreName = () => {
 // }); 
 
 const devices =  reader.enumerateDevices();
-useEffect(() => {
-  reader.onDeviceConnected =  (device) => {
-    updateReaderStatus();
-    console.log(device)
-  }
-})
-useEffect(() => {
-  reader.onDeviceConnected =  (device) => {
-    updateReaderStatus();
-    console.log(device)
-  }
-})
-const updateReaderStatus = async function() {
+  
+const updateReaderStatus =  async () => {
   try {
       const devices = await reader.enumerateDevices();
       console.log(devices)
@@ -39,10 +28,24 @@ const updateReaderStatus = async function() {
   } finally {
   }
 }
- const capture = async function(sample) {
+const connection = () => {
+  const devices = reader.enumerateDevices();
+  updateReaderStatus()
+  console.log(devices + " is connected")
+}
+const CheckConnection = async (device) =>  {
+ try { 
+   reader.onDeviceConnected = await connection();
+  } catch (err) {
+    console.log(err)
+}}
+
+ const capture = ()  => {
   try {
-    await reader.startAcquisition(SampleFormat.Intermediate);
-    console.log(sample)
+     reader.startAcquisition(SampleFormat.Intermediate);
+    setisSampleCollected(true)
+    // console.log(sample + isSampleCollected)
+    updateReaderStatus();
 } catch (err) {
     console.log(err)
 }
@@ -62,16 +65,16 @@ const updateReaderStatus = async function() {
 //   devices: devices,
 // })
 // };
-reader.onQualityReported = async (quality) => {
-console.log(quality.quality)
-};
-reader.onSamplesAcquired = async (data) => {
- // await this.submit(data.samples);
-  //this.$scope.$applyAsync();
-  console.log(data.samples)
-  const form = {};
-  form['fingerprint'] = data.samples[0].Data;
-  dispatch(HANDLE_CHANGE(form));
+// reader.onQualityReported = async (quality) => {
+// console.log(quality.quality)
+// };
+// reader.onSamplesAcquired = async (data) => {
+//  // await this.submit(data.samples);
+//   //this.$scope.$applyAsync();
+//   console.log(data.samples)
+//   const form = {};
+//   form['fingerprint'] = data.samples[0].Data;
+//   dispatch(HANDLE_CHANGE(form));
 
   /** try {
             const samples = event.samples;
@@ -87,11 +90,11 @@ reader.onSamplesAcquired = async (data) => {
            console.log(error)
         }**/
 
-};
+// };
 
-reader.onErrorOccurred = (reason) => {
-console.log(reason)
-};
+// reader.onErrorOccurred = (reason) => {
+// console.log(reason)
+// };
   const handleChange = ({ target: { name, value } }) => {
     const form = {};
     form[name] = value;
@@ -145,6 +148,12 @@ const clear = function () {
            form && form.fingerprint_data?
            <h6 style={{fontSize:'22px', paddingBottom:'0px', color:'blue'}}>Fingerprint Data Captured</h6>: <div/>
          } */}
+          <button
+        className={' btn'}
+        style={{width:'200px', margin:'0 auto', marginBottom: '30px', backgroundColor: "green"}} onClick={CheckConnection}>
+          {/* {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>} */}
+           Check Connection
+        </button>
           <button
         className={'primary btn'}
         style={{width:'200px', margin:'0 auto', marginBottom: '30px'}} onClick={capture}>
