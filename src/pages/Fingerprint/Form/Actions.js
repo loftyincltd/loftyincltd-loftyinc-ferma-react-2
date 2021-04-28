@@ -44,7 +44,7 @@ setloadingf(true)
       <div className="next">
         <button
         className={form && form.fingerprint ?'primary btn' : 'disabled btn' }
-        style={{width:'100px',gin:'0 5px'}} onClick={uploadFingerprint}>
+        style={{width:'200px',gin:'0 5px'}} onClick={uploadFingerprint}>
           {form.loading?<i cla marssName="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
         
         {loadingf ? <Spin size="large" /> : "Submit"}

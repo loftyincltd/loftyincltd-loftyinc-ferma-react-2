@@ -42,7 +42,7 @@ const Actions = ({ prevStep, changeStep, nextStep }) => {
       <div className="next">
         <button
         className={form && form.fingerprint ?'primary btn' : 'disabled btn' }
-        style={{width:'100px', margin:'0 5px'}} onClick={uploadWorker}>
+        style={{width:'200px', margin:'0 5px'}} onClick={uploadWorker}>
           {form.loading?<i className="fa fa-spinner fa-spin" style={{marginRight:'10px'}}></i>:<></>}
           {loadingf ? <Spin size="large" /> : "Submit"}
         </button>

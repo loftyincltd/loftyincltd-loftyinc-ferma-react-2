@@ -37,8 +37,9 @@ reader.onSamplesAcquired = async (data) => {
  };
  
   const capture = async (event) => {
+    event.preventDefault();
     if(device){
-      event.preventDefault();
+
       try {
         await reader.startAcquisition(SampleFormat.PngImage);
       } catch (err) {
@@ -62,12 +63,12 @@ reader.onSamplesAcquired = async (data) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
       { captured && b64? <img src={b64} className="fingerprint-image" /> : <div/>}
-      <button className={'btn'} style={{ width: '100px', margin: '0 auto', marginBottom: '30px', backgroundColor: 'green' }} onClick={click}>
+      <button className={'btn'} style={{ width: '200px', margin: '0 auto', marginBottom: '30px', backgroundColor: 'green' }} onClick={click}>
         Reload Conection
       </button>
       <button 
         className={device ?'primary btn' : 'disabled btn' }
-       style={{ width: '100px', margin: '0 auto', marginBottom: '30px' }} onClick={capture}>
+       style={{ width: '200px', margin: '0 auto', marginBottom: '30px' }} onClick={capture}>
         Capture Fingerprint
       </button>
     </div>
