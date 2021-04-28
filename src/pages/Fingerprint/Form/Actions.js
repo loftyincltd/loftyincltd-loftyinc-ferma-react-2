@@ -39,7 +39,7 @@ setloadingf(true)
     <div style={{display:'flex', alignItems:'center',justifyContent:'center',
      flexDirection:'row', margin:'10px auto'}}>
     <div className={'fingerprint-contaniner'}>
-      {form.fingerprint && form.fingerprint.trim()!="" ? <img src={'data:image/png;base64,'+form.fingerprint} className="fingerprint-image" /> : <div/>}
+      
     </div>
       <div className="next">
         <button
