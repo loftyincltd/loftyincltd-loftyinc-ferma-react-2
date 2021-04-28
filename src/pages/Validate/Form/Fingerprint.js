@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HANDLE_CHANGE, CLEAR } from '../../../redux/usersetup/action'; 
 import { FingerprintReader, QualityCode, SampleFormat } from '@digitalpersona/devices';
+
+
 export default function Fingerprint() {
+  const { form, } = useSelector((state) => state.usersetup);
+  const [captured, setCaptured] = useState(false)
   const dispatch = useDispatch();
   const reader = new FingerprintReader();
   const updateReaderStatus = async () => {
@@ -20,6 +24,7 @@ reader.onSamplesAcquired = async (data) => {
    const form = {};
    console.log(data.samples[0])
    form['fingerprint'] = data.samples[0];
+   setCaptured(true)
    console.log(form)
    dispatch(HANDLE_CHANGE(form));
  
@@ -40,8 +45,8 @@ reader.onSamplesAcquired = async (data) => {
   };
 
   return (
-    
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+      { captured? <img src={'data:image/png;base64,'+form.fingerprint} className="fingerprint-image" /> : <div/>}
       <button className={'btn'} style={{ width: '200px', margin: '0 auto', marginBottom: '30px', backgroundColor: 'green' }} onClick={click}>
         Reload Conection
       </button>
