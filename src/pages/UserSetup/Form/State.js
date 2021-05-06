@@ -55,7 +55,7 @@ const State = () => {
         {
           state.state?
           <div style={{marginTop: 10}}>
-          <h4 style={{width:'100%', textAlign:'left', paddingLeft:'15px', paddingBottom: '10px'}}>Senetorial District: </h4>
+          <h4 style={{width:'100%', textAlign:'left', paddingLeft:'15px', paddingBottom: '10px'}}>Senatorial District: </h4>
           <select   id={'store'} 
           default={-1}
       // style={{width: "89%", color:'#000'}}

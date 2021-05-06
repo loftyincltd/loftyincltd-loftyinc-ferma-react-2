@@ -64,7 +64,7 @@ reader.onSamplesAcquired = async (data) => {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
       { captured && b64? <img src={b64} className="fingerprint-image" /> : <div/>}
       <button className={'btn'} style={{ width: '200px', margin: '0 auto', marginBottom: '30px', backgroundColor: 'green' }} onClick={click}>
-        Reload Conection
+        Reload Connection
       </button>
       <button 
         className={device ?'primary btn' : 'disabled btn' }

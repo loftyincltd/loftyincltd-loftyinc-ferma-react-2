@@ -66,7 +66,7 @@ const State = () => {
          }}
        onChange={handleChange} name="district"
          className={'active'}>
-         <option disabled>Senetorial District</option>
+         <option disabled>Senatorial District</option>
          <FlatList data={district[state.state]} Child={OptionListItem} />
        
        </select>
