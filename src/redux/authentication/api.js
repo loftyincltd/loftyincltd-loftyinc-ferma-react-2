@@ -12,7 +12,7 @@ const api = (store) => (next) => async (action)  => {
     callback: function(){};
     try {
       const response = await axios.post(
-        'http://3.8.182.114:3003/v1' + url,
+        process.env.REACT_APP_API_URI + url,
         body
       ); 
       return callback(false, response);
@@ -39,7 +39,7 @@ const api = (store) => (next) => async (action)  => {
     }
     try {
       const response = await axios.get(
-        'http://3.8.182.114:3003/v1' + url, config
+        process.env.REACT_APP_API_URI + url, config
        
       ); 
       return callback(false, response);
