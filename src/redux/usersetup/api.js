@@ -368,19 +368,33 @@ const api = (user) => (next) => async (action)  => {
                  }
               }); 
               case 'FETCH_USER':
-                const f= user.getState().usersetup.form;
+               const f= user.getState().usersetup.form;
+                const fermaUser= await window.localStorage.getItem('ferma_user')
+                if(fermaUser){
+
+                  let fermaUserDecode= JSON.parse(fermaUser)
+               
                 f.type='customer'
                if(!f.download){
                   delete f.download;
                   console.log(f)
                }
 
+
+                if(!fermaUserDecode.super){
+                 f.all=true
+                 f.state=fermaUserDecode.state
+                }
+
+
             return get('/auth/user/all',f,  function(error, response){
                  if(error){
                   //errorNotification( 'Server Errror');
                    console.log(error);
+                   //alert('loading users')
                    return
                  } else{
+                   //sssalert('loading user')
                   if(!response.data.error) { 
                     if(response.data.success){
                       return  {success:response.data.success};
@@ -396,6 +410,7 @@ const api = (user) => (next) => async (action)  => {
             
                  }
               }); 
+            }
               case 'FETCH_STAT':
                 const f1= {};
             return get('/auth/user/stat',f1,  function(error, response){
