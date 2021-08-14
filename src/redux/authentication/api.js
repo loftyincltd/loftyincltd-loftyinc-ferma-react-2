@@ -147,7 +147,7 @@ const api = (store) => (next) => async (action)  => {
             console.log(error);
             return
           } else{
-         
+           window.localStorage.setItem('ferma_user', JSON.stringify(response.data.user));
            if(typeof response.data.error === 'undefined') { 
              //fetch store
              
